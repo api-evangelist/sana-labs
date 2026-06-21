@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Request an access token (client credentials).",
+          "request": {
+            "url": { "raw": "{{baseUrl}}/api/token", "host": ["{{baseUrl}}"], "path": ["api", "token"] },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "grant_type", "value": "client_credentials" },
+                { "key": "client_id", "value": "<string>" },
+                { "key": "client_secret", "value": "<string>" },
+                { "key": "scope", "value": "<string>" }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        { "name": "List all users.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Create a user.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Get a user.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Update a user.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete a user.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] },
+        { "name": "Send invite.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/send-invite", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "send-invite"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "POST", "header": [] }, "response": [] },
+        { "name": "Generate new invite link.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/invite-link", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "invite-link"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "POST", "header": [] }, "response": [] },
+        { "name": "List user's groups.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/groups", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "groups"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Set user's manager.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/manager/:managerId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "manager", ":managerId"], "variable": [{ "key": "userId", "value": "<string>" }, { "key": "managerId", "value": "<string>" }] }, "method": "PUT", "header": [] }, "response": [] },
+        { "name": "Delete user's manager.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/manager", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "manager"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Groups",
+      "item": [
+        { "name": "List all groups.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Create a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Get a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId"], "variable": [{ "key": "groupId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Update a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId"], "variable": [{ "key": "groupId", "value": "<string>" }] }, "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId"], "variable": [{ "key": "groupId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] },
+        { "name": "List users in a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId/users", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId", "users"], "variable": [{ "key": "groupId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Add users to a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId/users", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId", "users"], "variable": [{ "key": "groupId", "value": "<string>" }] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Update user in a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId/users/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId", "users", ":userId"], "variable": [{ "key": "groupId", "value": "<string>" }, { "key": "userId", "value": "<string>" }] }, "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete user from a group.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/groups/:groupId/users/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "groups", ":groupId", "users", ":userId"], "variable": [{ "key": "groupId", "value": "<string>" }, { "key": "userId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Programs",
+      "item": [
+        { "name": "List all programs.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Get a program.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs/:programId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs", ":programId"], "variable": [{ "key": "programId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Create a program.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Update a program.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs/:programId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs", ":programId"], "variable": [{ "key": "programId", "value": "<string>" }] }, "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete a program.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs/:programId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs", ":programId"], "variable": [{ "key": "programId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] },
+        { "name": "Enroll user to program.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs/:programId/members", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs", ":programId", "members"], "variable": [{ "key": "programId", "value": "<string>" }] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Unenroll user from program.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/programs/:programId/members", "host": ["{{baseUrl}}"], "path": ["api", "v0", "programs", ":programId", "members"], "variable": [{ "key": "programId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Assignments",
+      "item": [
+        { "name": "List user assignments.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/assignments", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "assignments"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Assign content to user.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/assignments", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "assignments"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete assignment.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/users/:userId/assignments", "host": ["{{baseUrl}}"], "path": ["api", "v0", "users", ":userId", "assignments"], "variable": [{ "key": "userId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Courses",
+      "item": [
+        { "name": "List courses.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Get a course.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses/:courseId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses", ":courseId"], "variable": [{ "key": "courseId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Create link course.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Create course (v1).", "request": { "url": { "raw": "{{baseUrl}}/api/v1/courses", "host": ["{{baseUrl}}"], "path": ["api", "v1", "courses"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Bulk upsert link courses.", "request": { "url": { "raw": "{{baseUrl}}/api/v1/courses/bulk-link-upsert", "host": ["{{baseUrl}}"], "path": ["api", "v1", "courses", "bulk-link-upsert"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Update a course.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses/:courseId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses", ":courseId"], "variable": [{ "key": "courseId", "value": "<string>" }] }, "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete a course.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses/:courseId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses", ":courseId"], "variable": [{ "key": "courseId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] },
+        { "name": "Mark course completion.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses/:courseId/completed/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses", ":courseId", "completed", ":userId"], "variable": [{ "key": "courseId", "value": "<string>" }, { "key": "userId", "value": "<string>" }] }, "method": "POST", "header": [] }, "response": [] },
+        { "name": "Reset course progress.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/courses/:courseId/reset/:userId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "courses", ":courseId", "reset", ":userId"], "variable": [{ "key": "courseId", "value": "<string>" }, { "key": "userId", "value": "<string>" }] }, "method": "POST", "header": [] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Paths",
+      "item": [
+        { "name": "List paths.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/paths", "host": ["{{baseUrl}}"], "path": ["api", "v0", "paths"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Get a path.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/paths/:pathId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "paths", ":pathId"], "variable": [{ "key": "pathId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Teamspaces",
+      "item": [
+        { "name": "List all teamspaces.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Get a teamspace.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces/:teamspaceId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces", ":teamspaceId"], "variable": [{ "key": "teamspaceId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Create a teamspace.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Delete a teamspace.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces/:teamspaceId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces", ":teamspaceId"], "variable": [{ "key": "teamspaceId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] },
+        { "name": "List teamspace members.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces/:teamspaceId/members", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces", ":teamspaceId", "members"], "variable": [{ "key": "teamspaceId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Add teamspace members.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces/:teamspaceId/members", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces", ":teamspaceId", "members"], "variable": [{ "key": "teamspaceId", "value": "<string>" }] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Remove teamspace members.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/teamspaces/:teamspaceId/members", "host": ["{{baseUrl}}"], "path": ["api", "v0", "teamspaces", ":teamspaceId", "members"], "variable": [{ "key": "teamspaceId", "value": "<string>" }] }, "method": "DELETE", "header": [] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Reporting",
+      "item": [
+        { "name": "List available reports.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/reports", "host": ["{{baseUrl}}"], "path": ["api", "v0", "reports"] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Create report job.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/reports/:reportId/jobs", "host": ["{{baseUrl}}"], "path": ["api", "v0", "reports", ":reportId", "jobs"], "variable": [{ "key": "reportId", "value": "<string>" }] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Get job status.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/reports/:reportId/jobs", "host": ["{{baseUrl}}"], "path": ["api", "v0", "reports", ":reportId", "jobs"], "variable": [{ "key": "reportId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] },
+        { "name": "Get specific job status.", "request": { "url": { "raw": "{{baseUrl}}/api/v0/reports/:reportId/jobs/:jobId", "host": ["{{baseUrl}}"], "path": ["api", "v0", "reports", ":reportId", "jobs", ":jobId"], "variable": [{ "key": "reportId", "value": "<string>" }, { "key": "jobId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] }
+      ]
+    },
+    {
+      "name": "Insights",
+      "item": [
+        { "name": "Create report job.", "request": { "url": { "raw": "{{baseUrl}}/api/v1/reports/query", "host": ["{{baseUrl}}"], "path": ["api", "v1", "reports", "query"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] },
+        { "name": "Get report job status.", "request": { "url": { "raw": "{{baseUrl}}/api/v1/reports/jobs/:jobId", "host": ["{{baseUrl}}"], "path": ["api", "v1", "reports", "jobs", ":jobId"], "variable": [{ "key": "jobId", "value": "<string>" }] }, "method": "GET", "header": [{ "key": "Accept", "value": "application/json" }] }, "response": [] }
+      ]
+    },
+    {
+      "name": "xAPI",
+      "item": [
+        { "name": "OAuth token endpoint (xAPI).", "request": { "url": { "raw": "{{baseUrl}}/api/oauth/token", "host": ["{{baseUrl}}"], "path": ["api", "oauth", "token"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }] }, "response": [] },
+        { "name": "Send xAPI statements.", "request": { "url": { "raw": "{{baseUrl}}/xapi/v1/statements", "host": ["{{baseUrl}}"], "path": ["xapi", "v1", "statements"] }, "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{}", "options": { "raw": { "language": "json" } } } }, "response": [] }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "https://<domain>.sana.ai" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{bearerToken}}" }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1f0c6d2-7e4b-4a3e-9c11-5b2d3e7f9a01",
+    "name": "Sana API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Tenant-scoped REST API for the Sana platform (Sana Learn admin/content + xAPI). Replace <domain> with your Sana tenant. Authenticate via OAuth 2.0 client credentials at /api/token and send Authorization: Bearer <accessToken>.\n\nDocs: https://docs.sana.ai/api-docs/",
+      "type": "text/plain"
+    }
+  }
+}

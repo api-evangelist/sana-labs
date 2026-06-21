@@ -1,0 +1,135 @@
+aid: sana-labs
+url: https://raw.githubusercontent.com/api-evangelist/sana-labs/refs/heads/main/apis.yml
+name: Sana
+kind: company
+description: Sana is an AI-native knowledge and learning company (Stockholm, Sweden;
+  now part of Workday) behind Sana AI / Sana Agents and the Sana Learn platform. It
+  builds expert AI agents and assistants grounded in a company's knowledge, plus an
+  AI-first LMS/LXP. Sana exposes a tenant-scoped REST API (OAuth 2.0 client
+  credentials) for user, group, program, course, content, and reporting management,
+  along with xAPI and SCIM integration surfaces.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- AI
+- Knowledge
+- Learning
+- LMS
+- Agents
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: sana-labs:ai-assistant-agents-api
+  name: Sana AI Assistant & Agents API
+  tags:
+  - AI
+  - Agents
+  - Assistant
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  properties:
+  - url: https://docs.sana.ai/api-docs/
+    type: Documentation
+  - url: openapi/sana-labs-openapi.yml
+    type: OpenAPI
+  - url: collections/sana-labs.postman_collection.json
+    type: PostmanCollection
+  - url: collections/sana-labs.opencollection.json
+    type: OpenCollection
+  description: Sana AI / Sana Agents builds expert AI agents and a knowledge
+    assistant grounded in a company's connected knowledge, able to act across tools
+    such as Slack and Salesforce. The agent / assistant capabilities are configured
+    primarily in-product; the documented public REST API surface is tenant-scoped
+    administration and content rather than a general chat-completions endpoint, and
+    agent/assistant programmatic access is partner / tenant gated. Captured here
+    accurately rather than fabricated.
+- aid: sana-labs:knowledge-search-api
+  name: Sana Knowledge & Search API
+  tags:
+  - Knowledge
+  - Search
+  - Retrieval
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  properties:
+  - url: https://docs.sana.ai/api-docs/
+    type: Documentation
+  - url: openapi/sana-labs-openapi.yml
+    type: OpenAPI
+  - url: collections/sana-labs.postman_collection.json
+    type: PostmanCollection
+  - url: collections/sana-labs.opencollection.json
+    type: OpenCollection
+  description: Sana connects to a company's knowledge (documents, spreadsheets,
+    meeting recordings, CRM assets) and answers multimodal queries grounded in
+    authorized sources. A dedicated public search/retrieval REST endpoint is not
+    separately documented in the public API reference as of this catalog date;
+    knowledge ingestion and grounding are configured via in-product connectors and
+    the Sana Learn content/course APIs.
+- aid: sana-labs:content-learning-api
+  name: Sana Learn Content & Learning API
+  tags:
+  - Learning
+  - LMS
+  - Content
+  - Courses
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  properties:
+  - url: https://docs.sana.ai/api-docs/
+    type: Documentation
+  - url: openapi/sana-labs-openapi.yml
+    type: OpenAPI
+  - url: collections/sana-labs.postman_collection.json
+    type: PostmanCollection
+  - url: collections/sana-labs.opencollection.json
+    type: OpenCollection
+  description: The documented core of the public API - tenant-scoped management of
+    users, groups, programs, courses, learning paths, assignments, teamspaces, and
+    reporting/insights for the Sana Learn platform. All requests are authenticated
+    with a Bearer access token obtained via OAuth 2.0 client credentials and are
+    scoped to a customer's <domain>.sana.ai tenant.
+- aid: sana-labs:integrations-api
+  name: Sana Integrations API
+  tags:
+  - Integrations
+  - xAPI
+  - SCIM
+  - Provisioning
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  properties:
+  - url: https://docs.sana.ai/api-docs/
+    type: Documentation
+  - url: openapi/sana-labs-openapi.yml
+    type: OpenAPI
+  - url: collections/sana-labs.postman_collection.json
+    type: PostmanCollection
+  - url: collections/sana-labs.opencollection.json
+    type: OpenCollection
+  description: Standards-based integration surfaces - xAPI (Experience API)
+    statement ingestion at /xapi/v1/statements with its own OAuth token endpoint,
+    and SCIM 2.0 user/group provisioning at /scim/v2 - plus connectors to external
+    systems (Slack, Salesforce, LinkedIn Learning) configured in-product.
+common:
+- type: GitHubOrganization
+  url: https://github.com/sanalabs
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sana-labs
+- type: Website
+  url: https://www.sana.ai
+- type: Documentation
+  url: https://docs.sana.ai/api-docs/
+- type: Plans
+  url: plans/sana-labs-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sana-labs-rate-limits.yml
+- type: FinOps
+  url: finops/sana-labs-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

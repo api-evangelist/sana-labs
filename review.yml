@@ -1,0 +1,106 @@
+aid: sana-labs
+name: Sana
+review:
+  question: Does Sana expose a documented, publicly accessible developer API, and what is its real surface?
+  answer: true
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  disambiguation: |
+    This profile covers Sana (sana.ai / sanalabs.com) - the AI-native knowledge
+    and learning company (Stockholm, Sweden; now part of Workday) behind Sana AI /
+    Sana Agents and Sana Learn. It is NOT Sana Benefits (sanabenefits.com), an
+    unrelated US health-insurance company. The two share a name only.
+findings:
+  summary: |
+    Sana publishes a real, documented API at https://docs.sana.ai/api-docs/. The
+    surface is a tenant-scoped REST API (base URL https://<domain>.sana.ai)
+    authenticated via the OAuth 2.0 client credentials flow: clients POST
+    client_id/client_secret to /api/token to receive a Bearer accessToken
+    (tokenType bearer, expiresIn ~3600s) sent as Authorization: Bearer
+    <accessToken>. The documented endpoints are predominantly Sana Learn platform
+    administration and content management - users, groups, programs, assignments,
+    courses (v0 and v1), learning paths, teamspaces - plus reporting (legacy
+    /api/v0/reports) and Insights (/api/v1/reports/query). Standards-based
+    integration surfaces include xAPI statement ingestion (/xapi/v1/statements
+    with its own /api/oauth/token endpoint) and SCIM 2.0 provisioning (/scim/v2).
+  availabilityHonesty: |
+    Sana markets AI Agents and a Knowledge Assistant heavily, but the PUBLIC API
+    reference does not document a general chat-completions / agent-invocation
+    endpoint or a standalone knowledge/search retrieval endpoint. Those AI
+    capabilities are configured primarily in-product (and via connectors to Slack,
+    Salesforce, LinkedIn Learning, etc.); programmatic agent/assistant access
+    appears partner / tenant gated. The catalog reflects four API groupings (AI
+    Assistant & Agents, Knowledge & Search, Content & Learning, Integrations) but
+    is explicit that only the Content & Learning and Integrations groupings have a
+    fully documented public REST surface; the other two are accurately marked as
+    in-product / gated rather than fabricated as public endpoints.
+  pricingHonesty: |
+    Pricing is sales-led and not publicly itemized for the API. Sana Learn states a
+    minimum license (~300 users); Sana AI / Agents is quoted by sales. Plans,
+    rate-limits, and finops artifacts are therefore marked reconciled: false.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://<domain>.sana.ai
+      documented: true
+    - protocol: SCIM
+      scheme: https
+      baseURL: https://<domain>.sana.ai/scim/v2
+      documented: true
+      note: SCIM 2.0 user/group provisioning; not modeled in the OpenAPI.
+    - protocol: xAPI
+      scheme: https
+      baseURL: https://<domain>.sana.ai/xapi/v1
+      documented: true
+  endpointsConfirmedRest:
+    - POST   https://<domain>.sana.ai/api/token
+    - GET    https://<domain>.sana.ai/api/v0/users
+    - POST   https://<domain>.sana.ai/api/v0/users
+    - GET    https://<domain>.sana.ai/api/v0/users/{userId}
+    - PATCH  https://<domain>.sana.ai/api/v0/users/{userId}
+    - DELETE https://<domain>.sana.ai/api/v0/users/{userId}
+    - GET    https://<domain>.sana.ai/api/v0/groups
+    - POST   https://<domain>.sana.ai/api/v0/groups
+    - GET    https://<domain>.sana.ai/api/v0/programs
+    - POST   https://<domain>.sana.ai/api/v0/programs/{programId}/members
+    - GET    https://<domain>.sana.ai/api/v0/users/{userId}/assignments
+    - GET    https://<domain>.sana.ai/api/v0/courses
+    - POST   https://<domain>.sana.ai/api/v1/courses
+    - POST   https://<domain>.sana.ai/api/v1/courses/bulk-link-upsert
+    - GET    https://<domain>.sana.ai/api/v0/paths
+    - GET    https://<domain>.sana.ai/api/v0/teamspaces
+    - GET    https://<domain>.sana.ai/api/v0/reports
+    - POST   https://<domain>.sana.ai/api/v1/reports/query
+    - GET    https://<domain>.sana.ai/api/v1/reports/jobs/{jobId}
+    - POST   https://<domain>.sana.ai/api/oauth/token
+    - POST   https://<domain>.sana.ai/xapi/v1/statements
+sources:
+  - url: https://docs.sana.ai/api-docs/
+    type: APIReference
+    note: Primary public API reference; OAuth client credentials + documented REST endpoints.
+  - url: https://sana.ai/api-docs/
+    type: Documentation
+    note: Redirects to docs.sana.ai/api-docs/.
+  - url: https://help.sana.ai/en/articles/323900-insights-api
+    type: Documentation
+    note: Insights API - POST /api/v1/reports/query.
+  - url: https://help.sana.ai/en/articles/23062-how-to-configure-scim
+    type: Documentation
+    note: SCIM 2.0 connector base URL https://<domain>.sana.ai/scim/v2.
+  - url: https://sanalabs.com/products/sana-learn/pricing
+    type: Pricing
+    note: Sales-led pricing; minimum ~300-user license for Sana Learn.
+  - url: https://github.com/sanalabs
+    type: GitHubOrganization
+    note: Real GitHub org (sanalabs), small number of public repositories.
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Catalog authored from Sana's public API reference and product/company pages.
+    Four API groupings recorded; documented public REST endpoints captured in
+    openapi/sana-labs-openapi.yml without fabrication. Plans/rate-limits/finops
+    set reconciled: false because pricing and limits are sales-led and not
+    publicly itemized. Disambiguated from Sana Benefits.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

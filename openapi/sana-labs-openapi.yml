@@ -1,0 +1,487 @@
+openapi: 3.0.1
+info:
+  title: Sana API
+  description: >-
+    Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana
+    Learn). All requests are authenticated with a Bearer access token obtained via
+    the OAuth 2.0 client credentials flow and are scoped to a customer's
+    <domain>.sana.ai tenant. The endpoints below are transcribed from Sana's public
+    API reference and cover platform administration (users, groups, programs,
+    courses, paths, assignments, teamspaces), reporting/insights, and standards-based
+    integration surfaces (xAPI). SCIM 2.0 provisioning is offered at /scim/v2 and is
+    not modeled here. AI agent/assistant capabilities are configured primarily
+    in-product and are not exposed as a public chat-completions endpoint in this
+    reference. No endpoints are fabricated; replace <domain> with your tenant domain.
+  termsOfService: https://sanalabs.com/legal
+  contact:
+    name: Sana
+    url: https://docs.sana.ai/api-docs/
+  version: '0.0'
+servers:
+  - url: https://<domain>.sana.ai
+    description: Tenant-scoped base URL; replace <domain> with your Sana tenant.
+security:
+  - bearerAuth: []
+tags:
+  - name: Authentication
+  - name: Users
+  - name: Groups
+  - name: Programs
+  - name: Assignments
+  - name: Courses
+  - name: Paths
+  - name: Teamspaces
+  - name: Reporting
+  - name: Insights
+  - name: xAPI
+paths:
+  /api/token:
+    post:
+      operationId: createToken
+      tags:
+        - Authentication
+      summary: Request an access token (OAuth 2.0 client credentials).
+      description: >-
+        Exchange client_id and client_secret for a Bearer access token using
+        grant_type=client_credentials. The response includes accessToken, tokenType
+        (bearer), and expiresIn (e.g. 3600 seconds).
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  example: client_credentials
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                scope:
+                  type: string
+      responses:
+        '200':
+          description: Access token issued.
+  /api/v0/users:
+    get:
+      operationId: listUsers
+      tags: [Users]
+      summary: List all users.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createUser
+      tags: [Users]
+      summary: Create a user.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getUser
+      tags: [Users]
+      summary: Get a user.
+      responses:
+        '200': { description: OK }
+    patch:
+      operationId: updateUser
+      tags: [Users]
+      summary: Update a user.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteUser
+      tags: [Users]
+      summary: Delete a user.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}/send-invite:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: sendUserInvite
+      tags: [Users]
+      summary: Send an invite to a user.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}/invite-link:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: createUserInviteLink
+      tags: [Users]
+      summary: Generate a new invite link for a user.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}/groups:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: listUserGroups
+      tags: [Users]
+      summary: List a user's groups.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}/manager/{managerId}:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+      - { name: managerId, in: path, required: true, schema: { type: string } }
+    put:
+      operationId: setUserManager
+      tags: [Users]
+      summary: Set a user's manager.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}/manager:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    delete:
+      operationId: deleteUserManager
+      tags: [Users]
+      summary: Delete a user's manager.
+      responses:
+        '200': { description: OK }
+  /api/v0/groups:
+    get:
+      operationId: listGroups
+      tags: [Groups]
+      summary: List all groups.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createGroup
+      tags: [Groups]
+      summary: Create a group.
+      responses:
+        '200': { description: OK }
+  /api/v0/groups/{groupId}:
+    parameters:
+      - { name: groupId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getGroup
+      tags: [Groups]
+      summary: Get a group.
+      responses:
+        '200': { description: OK }
+    patch:
+      operationId: updateGroup
+      tags: [Groups]
+      summary: Update a group.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteGroup
+      tags: [Groups]
+      summary: Delete a group.
+      responses:
+        '200': { description: OK }
+  /api/v0/groups/{groupId}/users:
+    parameters:
+      - { name: groupId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: listGroupUsers
+      tags: [Groups]
+      summary: List users in a group.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: addGroupUsers
+      tags: [Groups]
+      summary: Add users to a group.
+      responses:
+        '200': { description: OK }
+  /api/v0/groups/{groupId}/users/{userId}:
+    parameters:
+      - { name: groupId, in: path, required: true, schema: { type: string } }
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    patch:
+      operationId: updateGroupUser
+      tags: [Groups]
+      summary: Update a user in a group.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteGroupUser
+      tags: [Groups]
+      summary: Delete a user from a group.
+      responses:
+        '200': { description: OK }
+  /api/v0/programs:
+    get:
+      operationId: listPrograms
+      tags: [Programs]
+      summary: List all programs.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createProgram
+      tags: [Programs]
+      summary: Create a program.
+      responses:
+        '200': { description: OK }
+  /api/v0/programs/{programId}:
+    parameters:
+      - { name: programId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getProgram
+      tags: [Programs]
+      summary: Get a program.
+      responses:
+        '200': { description: OK }
+    patch:
+      operationId: updateProgram
+      tags: [Programs]
+      summary: Update a program.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteProgram
+      tags: [Programs]
+      summary: Delete a program.
+      responses:
+        '200': { description: OK }
+  /api/v0/programs/{programId}/members:
+    parameters:
+      - { name: programId, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: enrollProgramMember
+      tags: [Programs]
+      summary: Enroll a user to a program.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: unenrollProgramMember
+      tags: [Programs]
+      summary: Unenroll a user from a program.
+      responses:
+        '200': { description: OK }
+  /api/v0/users/{userId}/assignments:
+    parameters:
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: listUserAssignments
+      tags: [Assignments]
+      summary: List a user's assignments.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: assignContentToUser
+      tags: [Assignments]
+      summary: Assign content to a user.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteUserAssignment
+      tags: [Assignments]
+      summary: Delete a user's assignment.
+      responses:
+        '200': { description: OK }
+  /api/v0/courses:
+    get:
+      operationId: listCourses
+      tags: [Courses]
+      summary: List courses.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createLinkCourse
+      tags: [Courses]
+      summary: Create a link course.
+      responses:
+        '200': { description: OK }
+  /api/v1/courses:
+    post:
+      operationId: createCourseV1
+      tags: [Courses]
+      summary: Create a course (v1).
+      responses:
+        '200': { description: OK }
+  /api/v1/courses/bulk-link-upsert:
+    post:
+      operationId: bulkLinkUpsertCourses
+      tags: [Courses]
+      summary: Bulk upsert link courses.
+      responses:
+        '200': { description: OK }
+  /api/v0/courses/{courseId}:
+    parameters:
+      - { name: courseId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getCourse
+      tags: [Courses]
+      summary: Get a course.
+      responses:
+        '200': { description: OK }
+    patch:
+      operationId: updateCourse
+      tags: [Courses]
+      summary: Update a course.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteCourse
+      tags: [Courses]
+      summary: Delete a course.
+      responses:
+        '200': { description: OK }
+  /api/v0/courses/{courseId}/completed/{userId}:
+    parameters:
+      - { name: courseId, in: path, required: true, schema: { type: string } }
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: markCourseCompleted
+      tags: [Courses]
+      summary: Mark course completion for a user.
+      responses:
+        '200': { description: OK }
+  /api/v0/courses/{courseId}/reset/{userId}:
+    parameters:
+      - { name: courseId, in: path, required: true, schema: { type: string } }
+      - { name: userId, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: resetCourseProgress
+      tags: [Courses]
+      summary: Reset course progress for a user.
+      responses:
+        '200': { description: OK }
+  /api/v0/paths:
+    get:
+      operationId: listPaths
+      tags: [Paths]
+      summary: List learning paths.
+      responses:
+        '200': { description: OK }
+  /api/v0/paths/{pathId}:
+    parameters:
+      - { name: pathId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getPath
+      tags: [Paths]
+      summary: Get a learning path.
+      responses:
+        '200': { description: OK }
+  /api/v0/teamspaces:
+    get:
+      operationId: listTeamspaces
+      tags: [Teamspaces]
+      summary: List all teamspaces.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createTeamspace
+      tags: [Teamspaces]
+      summary: Create a teamspace.
+      responses:
+        '200': { description: OK }
+  /api/v0/teamspaces/{teamspaceId}:
+    parameters:
+      - { name: teamspaceId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getTeamspace
+      tags: [Teamspaces]
+      summary: Get a teamspace.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: deleteTeamspace
+      tags: [Teamspaces]
+      summary: Delete a teamspace.
+      responses:
+        '200': { description: OK }
+  /api/v0/teamspaces/{teamspaceId}/members:
+    parameters:
+      - { name: teamspaceId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: listTeamspaceMembers
+      tags: [Teamspaces]
+      summary: List teamspace members.
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: addTeamspaceMembers
+      tags: [Teamspaces]
+      summary: Add teamspace members.
+      responses:
+        '200': { description: OK }
+    delete:
+      operationId: removeTeamspaceMembers
+      tags: [Teamspaces]
+      summary: Remove teamspace members.
+      responses:
+        '200': { description: OK }
+  /api/v0/reports:
+    get:
+      operationId: listReports
+      tags: [Reporting]
+      summary: List available reports (legacy reporting).
+      responses:
+        '200': { description: OK }
+  /api/v0/reports/{reportId}/jobs:
+    parameters:
+      - { name: reportId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getReportJobs
+      tags: [Reporting]
+      summary: Get report job status (legacy reporting).
+      responses:
+        '200': { description: OK }
+    post:
+      operationId: createReportJob
+      tags: [Reporting]
+      summary: Create a report job (legacy reporting).
+      responses:
+        '200': { description: OK }
+  /api/v0/reports/{reportId}/jobs/{jobId}:
+    parameters:
+      - { name: reportId, in: path, required: true, schema: { type: string } }
+      - { name: jobId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getReportJob
+      tags: [Reporting]
+      summary: Get a specific report job status (legacy reporting).
+      responses:
+        '200': { description: OK }
+  /api/v1/reports/query:
+    post:
+      operationId: createInsightsReportJob
+      tags: [Insights]
+      summary: Create an Insights report job.
+      responses:
+        '200': { description: OK }
+  /api/v1/reports/jobs/{jobId}:
+    parameters:
+      - { name: jobId, in: path, required: true, schema: { type: string } }
+    get:
+      operationId: getInsightsReportJob
+      tags: [Insights]
+      summary: Get an Insights report job status.
+      responses:
+        '200': { description: OK }
+  /api/oauth/token:
+    post:
+      operationId: createXapiToken
+      tags: [xAPI]
+      summary: OAuth token endpoint for xAPI.
+      description: Dedicated OAuth token endpoint used to authenticate xAPI statement requests.
+      security: []
+      responses:
+        '200': { description: OK }
+  /xapi/v1/statements:
+    post:
+      operationId: sendXapiStatements
+      tags: [xAPI]
+      summary: Send xAPI (Experience API) statements.
+      responses:
+        '200': { description: OK }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Bearer access token obtained from POST /api/token via the OAuth 2.0
+        client credentials flow. Sent as: Authorization: Bearer <accessToken>.

@@ -1,0 +1,99 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Sana
+providerId: sana-labs
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- AI
+- Knowledge
+- Learning
+- LMS
+- Agents
+- Plans
+description: >-
+  Sana uses sales-led, enterprise pricing tailored to company size and needs
+  rather than self-serve, published per-call API rates. Sana Learn carries a
+  stated minimum license requirement (around 300 users, which may include a mix
+  of internal/external learners, content creators, and admins). Pricing for Sana
+  AI / Sana Agents is quoted by sales. No public per-token or per-request API
+  pricing is documented; values here are not reconciled.
+notes: >-
+  Pricing is quote-based and not publicly itemized. Contact Sana sales for
+  current terms. Verify the minimum-seat requirement and any usage-based add-ons
+  during reconciliation.
+sources:
+- https://sanalabs.com/products/sana-learn/pricing
+- https://docs.sana.ai/api-docs/
+- https://www.sana.ai
+plans:
+- id: sana-learn
+  name: Sana Learn
+  type: enterprise
+  description: >-
+    AI-native learning platform (LMS/LXP/authoring/virtual classroom) licensed
+    per seat with a stated minimum (around 300 users). Pricing tailored by sales.
+  entries:
+  - label: Sana Learn License
+    name: sana_learn_license
+    type: flat
+    metric: seats
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales (minimum ~300 users)
+    userMultiplied: true
+  elements:
+  - name: Courses and Paths
+  - name: Programs and Assignments
+  - name: Teamspaces
+  - name: Insights and Reporting
+  - name: Platform API access
+- id: sana-ai-agents
+  name: Sana AI / Sana Agents
+  type: enterprise
+  description: >-
+    AI knowledge assistant and expert agents grounded in company knowledge, with
+    actions across connected tools. Quoted by sales.
+  entries:
+  - label: Sana AI / Agents
+    name: sana_ai_agents
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: AI Agents
+  - name: Knowledge Assistant
+  - name: Tool Integrations (Slack, Salesforce, etc.)
+- id: sana-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Enterprise agreements with security and compliance commitments (ISO 27001,
+    SOC 2 Type I/II, GDPR), volume terms, and dedicated support. Negotiated.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Security and Compliance Commitments
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,55 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Sana
+providerId: sana-labs
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- AI
+- Knowledge
+- Learning
+- LMS
+- Agents
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Sana's public API reference does not publish explicit, numeric per-account
+  rate limits for the tenant-scoped REST API. Access is gated by OAuth 2.0
+  client-credentials tokens scoped to a customer's <domain>.sana.ai tenant, and
+  practical throughput is governed by enterprise agreements. Specific RPM/RPS or
+  quota values are not documented and are not reconciled in this artifact.
+notes: >-
+  Confirm any documented or contractually agreed throttling thresholds, token
+  expiry (access tokens are issued with an expiresIn, e.g. 3600 seconds), and
+  retry guidance directly with Sana during reconciliation.
+sources:
+- https://docs.sana.ai/api-docs/
+- https://www.sana.ai
+responseCodes:
+  throttled: 429
+limits:
+- name: Per-Tenant API Requests
+  scope: tenant
+  metric: requests
+  limit: see provider documentation
+  notes: No numeric public rate limit documented; scoped per <domain>.sana.ai tenant token.
+- name: Access Token Lifetime
+  scope: token
+  metric: seconds
+  limit: '3600'
+  notes: OAuth client-credentials access tokens are issued with an expiresIn (e.g. 3600s); re-request as needed.
+policies:
+- name: Token Refresh
+  description: >-
+    Request a fresh access token from POST /api/token before expiry rather than
+    relying on a long-lived credential.
+- name: Backoff Strategy
+  description: >-
+    Clients should implement exponential backoff with jitter and honor any
+    Retry-After header on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

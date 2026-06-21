@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sana API",
+    "version": "0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Authentication", "type": "folder" },
+      "items": [
+        { "info": { "name": "Request an access token (client credentials).", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/token", "body": { "type": "urlencoded", "data": [] } }, "docs": "OAuth 2.0 client credentials: exchange client_id/client_secret for a Bearer accessToken." }
+      ]
+    },
+    {
+      "info": { "name": "Users", "type": "folder" },
+      "items": [
+        { "info": { "name": "List all users.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/users" }, "docs": "List all users." },
+        { "info": { "name": "Create a user.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/users", "body": { "type": "json", "data": "{}" } }, "docs": "Create a user." },
+        { "info": { "name": "Get a user.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/users/:userId" }, "docs": "Get a user." },
+        { "info": { "name": "Update a user.", "type": "http" }, "http": { "method": "PATCH", "url": "https://<domain>.sana.ai/api/v0/users/:userId", "body": { "type": "json", "data": "{}" } }, "docs": "Update a user." },
+        { "info": { "name": "Delete a user.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/users/:userId" }, "docs": "Delete a user." },
+        { "info": { "name": "Send invite.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/users/:userId/send-invite" }, "docs": "Send invite." },
+        { "info": { "name": "Generate new invite link.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/users/:userId/invite-link" }, "docs": "Generate new invite link." },
+        { "info": { "name": "List user's groups.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/users/:userId/groups" }, "docs": "List user's groups." },
+        { "info": { "name": "Set user's manager.", "type": "http" }, "http": { "method": "PUT", "url": "https://<domain>.sana.ai/api/v0/users/:userId/manager/:managerId" }, "docs": "Set user's manager." },
+        { "info": { "name": "Delete user's manager.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/users/:userId/manager" }, "docs": "Delete user's manager." }
+      ]
+    },
+    {
+      "info": { "name": "Groups", "type": "folder" },
+      "items": [
+        { "info": { "name": "List all groups.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/groups" }, "docs": "List all groups." },
+        { "info": { "name": "Create a group.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/groups", "body": { "type": "json", "data": "{}" } }, "docs": "Create a group." },
+        { "info": { "name": "Get a group.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId" }, "docs": "Get a group." },
+        { "info": { "name": "Update a group.", "type": "http" }, "http": { "method": "PATCH", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId", "body": { "type": "json", "data": "{}" } }, "docs": "Update a group." },
+        { "info": { "name": "Delete a group.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId" }, "docs": "Delete a group." },
+        { "info": { "name": "List users in a group.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId/users" }, "docs": "List users in a group." },
+        { "info": { "name": "Add users to a group.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId/users", "body": { "type": "json", "data": "{}" } }, "docs": "Add users to a group." },
+        { "info": { "name": "Update user in a group.", "type": "http" }, "http": { "method": "PATCH", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId/users/:userId", "body": { "type": "json", "data": "{}" } }, "docs": "Update user in a group." },
+        { "info": { "name": "Delete user from a group.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/groups/:groupId/users/:userId" }, "docs": "Delete user from a group." }
+      ]
+    },
+    {
+      "info": { "name": "Programs", "type": "folder" },
+      "items": [
+        { "info": { "name": "List all programs.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/programs" }, "docs": "List all programs." },
+        { "info": { "name": "Get a program.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/programs/:programId" }, "docs": "Get a program." },
+        { "info": { "name": "Create a program.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/programs", "body": { "type": "json", "data": "{}" } }, "docs": "Create a program." },
+        { "info": { "name": "Update a program.", "type": "http" }, "http": { "method": "PATCH", "url": "https://<domain>.sana.ai/api/v0/programs/:programId", "body": { "type": "json", "data": "{}" } }, "docs": "Update a program." },
+        { "info": { "name": "Delete a program.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/programs/:programId" }, "docs": "Delete a program." },
+        { "info": { "name": "Enroll user to program.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/programs/:programId/members", "body": { "type": "json", "data": "{}" } }, "docs": "Enroll user to program." },
+        { "info": { "name": "Unenroll user from program.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/programs/:programId/members" }, "docs": "Unenroll user from program." }
+      ]
+    },
+    {
+      "info": { "name": "Assignments", "type": "folder" },
+      "items": [
+        { "info": { "name": "List user assignments.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/users/:userId/assignments" }, "docs": "List user assignments." },
+        { "info": { "name": "Assign content to user.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/users/:userId/assignments", "body": { "type": "json", "data": "{}" } }, "docs": "Assign content to user." },
+        { "info": { "name": "Delete assignment.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/users/:userId/assignments" }, "docs": "Delete assignment." }
+      ]
+    },
+    {
+      "info": { "name": "Courses", "type": "folder" },
+      "items": [
+        { "info": { "name": "List courses.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/courses" }, "docs": "List courses." },
+        { "info": { "name": "Get a course.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/courses/:courseId" }, "docs": "Get a course." },
+        { "info": { "name": "Create link course.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/courses", "body": { "type": "json", "data": "{}" } }, "docs": "Create link course." },
+        { "info": { "name": "Create course (v1).", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v1/courses", "body": { "type": "json", "data": "{}" } }, "docs": "Create course (v1)." },
+        { "info": { "name": "Bulk upsert link courses.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v1/courses/bulk-link-upsert", "body": { "type": "json", "data": "{}" } }, "docs": "Bulk upsert link courses." },
+        { "info": { "name": "Update a course.", "type": "http" }, "http": { "method": "PATCH", "url": "https://<domain>.sana.ai/api/v0/courses/:courseId", "body": { "type": "json", "data": "{}" } }, "docs": "Update a course." },
+        { "info": { "name": "Delete a course.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/courses/:courseId" }, "docs": "Delete a course." },
+        { "info": { "name": "Mark course completion.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/courses/:courseId/completed/:userId" }, "docs": "Mark course completion." },
+        { "info": { "name": "Reset course progress.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/courses/:courseId/reset/:userId" }, "docs": "Reset course progress." }
+      ]
+    },
+    {
+      "info": { "name": "Paths", "type": "folder" },
+      "items": [
+        { "info": { "name": "List paths.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/paths" }, "docs": "List paths." },
+        { "info": { "name": "Get a path.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/paths/:pathId" }, "docs": "Get a path." }
+      ]
+    },
+    {
+      "info": { "name": "Teamspaces", "type": "folder" },
+      "items": [
+        { "info": { "name": "List all teamspaces.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/teamspaces" }, "docs": "List all teamspaces." },
+        { "info": { "name": "Get a teamspace.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/teamspaces/:teamspaceId" }, "docs": "Get a teamspace." },
+        { "info": { "name": "Create a teamspace.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/teamspaces", "body": { "type": "json", "data": "{}" } }, "docs": "Create a teamspace." },
+        { "info": { "name": "Delete a teamspace.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/teamspaces/:teamspaceId" }, "docs": "Delete a teamspace." },
+        { "info": { "name": "List teamspace members.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/teamspaces/:teamspaceId/members" }, "docs": "List teamspace members." },
+        { "info": { "name": "Add teamspace members.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/teamspaces/:teamspaceId/members", "body": { "type": "json", "data": "{}" } }, "docs": "Add teamspace members." },
+        { "info": { "name": "Remove teamspace members.", "type": "http" }, "http": { "method": "DELETE", "url": "https://<domain>.sana.ai/api/v0/teamspaces/:teamspaceId/members" }, "docs": "Remove teamspace members." }
+      ]
+    },
+    {
+      "info": { "name": "Reporting", "type": "folder" },
+      "items": [
+        { "info": { "name": "List available reports.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/reports" }, "docs": "List available reports (legacy)." },
+        { "info": { "name": "Create report job.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v0/reports/:reportId/jobs", "body": { "type": "json", "data": "{}" } }, "docs": "Create report job (legacy)." },
+        { "info": { "name": "Get job status.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/reports/:reportId/jobs" }, "docs": "Get job status (legacy)." },
+        { "info": { "name": "Get specific job status.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v0/reports/:reportId/jobs/:jobId" }, "docs": "Get specific job status (legacy)." }
+      ]
+    },
+    {
+      "info": { "name": "Insights", "type": "folder" },
+      "items": [
+        { "info": { "name": "Create report job.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/v1/reports/query", "body": { "type": "json", "data": "{}" } }, "docs": "Create an Insights report job." },
+        { "info": { "name": "Get report job status.", "type": "http" }, "http": { "method": "GET", "url": "https://<domain>.sana.ai/api/v1/reports/jobs/:jobId" }, "docs": "Get an Insights report job status." }
+      ]
+    },
+    {
+      "info": { "name": "xAPI", "type": "folder" },
+      "items": [
+        { "info": { "name": "OAuth token endpoint (xAPI).", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/api/oauth/token" }, "docs": "OAuth token endpoint for xAPI." },
+        { "info": { "name": "Send xAPI statements.", "type": "http" }, "http": { "method": "POST", "url": "https://<domain>.sana.ai/xapi/v1/statements", "body": { "type": "json", "data": "{}" } }, "docs": "Send xAPI (Experience API) statements." }
+      ]
+    }
+  ]
+}
