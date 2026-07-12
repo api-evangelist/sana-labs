@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sana-labs-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Bearer access token obtained from POST /api/token via the OAuth 2.0 client credentials
+    flow. Sent as: Authorization: Bearer <accessToken>.'
+  sources:
+  - openapi/sana-labs-openapi.yml

@@ -116,6 +116,10 @@ apis:
     and SCIM 2.0 user/group provisioning at /scim/v2 - plus connectors to external
     systems (Slack, Salesforce, LinkedIn Learning) configured in-product.
 common:
+- type: DomainSecurity
+  url: security/sana-labs-domain-security.yml
+- type: Authentication
+  url: authentication/sana-labs-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/sanalabs
 - type: LinkedIn
