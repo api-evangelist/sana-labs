@@ -1,0 +1,94 @@
+openapi: 3.0.1
+info:
+  title: Sana Assignments Programs API
+  description: Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana Learn). All requests are authenticated with a Bearer access token obtained via the OAuth 2.0 client credentials flow and are scoped to a customer's <domain>.sana.ai tenant. The endpoints below are transcribed from Sana's public API reference and cover platform administration (users, groups, programs, courses, paths, assignments, teamspaces), reporting/insights, and standards-based integration surfaces (xAPI). SCIM 2.0 provisioning is offered at /scim/v2 and is not modeled here. AI agent/assistant capabilities are configured primarily in-product and are not exposed as a public chat-completions endpoint in this reference. No endpoints are fabricated; replace <domain> with your tenant domain.
+  termsOfService: https://sanalabs.com/legal
+  contact:
+    name: Sana
+    url: https://docs.sana.ai/api-docs/
+  version: '0.0'
+servers:
+- url: https://<domain>.sana.ai
+  description: Tenant-scoped base URL; replace <domain> with your Sana tenant.
+security:
+- bearerAuth: []
+tags:
+- name: Programs
+paths:
+  /api/v0/programs:
+    get:
+      operationId: listPrograms
+      tags:
+      - Programs
+      summary: List all programs.
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: createProgram
+      tags:
+      - Programs
+      summary: Create a program.
+      responses:
+        '200':
+          description: OK
+  /api/v0/programs/{programId}:
+    parameters:
+    - name: programId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getProgram
+      tags:
+      - Programs
+      summary: Get a program.
+      responses:
+        '200':
+          description: OK
+    patch:
+      operationId: updateProgram
+      tags:
+      - Programs
+      summary: Update a program.
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteProgram
+      tags:
+      - Programs
+      summary: Delete a program.
+      responses:
+        '200':
+          description: OK
+  /api/v0/programs/{programId}/members:
+    parameters:
+    - name: programId
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: enrollProgramMember
+      tags:
+      - Programs
+      summary: Enroll a user to a program.
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: unenrollProgramMember
+      tags:
+      - Programs
+      summary: Unenroll a user from a program.
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer access token obtained from POST /api/token via the OAuth 2.0 client credentials flow. Sent as: Authorization: Bearer <accessToken>.'

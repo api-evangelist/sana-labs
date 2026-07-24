@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: Sana Assignments API
+  description: Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana Learn). All requests are authenticated with a Bearer access token obtained via the OAuth 2.0 client credentials flow and are scoped to a customer's <domain>.sana.ai tenant. The endpoints below are transcribed from Sana's public API reference and cover platform administration (users, groups, programs, courses, paths, assignments, teamspaces), reporting/insights, and standards-based integration surfaces (xAPI). SCIM 2.0 provisioning is offered at /scim/v2 and is not modeled here. AI agent/assistant capabilities are configured primarily in-product and are not exposed as a public chat-completions endpoint in this reference. No endpoints are fabricated; replace <domain> with your tenant domain.
+  termsOfService: https://sanalabs.com/legal
+  contact:
+    name: Sana
+    url: https://docs.sana.ai/api-docs/
+  version: '0.0'
+servers:
+- url: https://<domain>.sana.ai
+  description: Tenant-scoped base URL; replace <domain> with your Sana tenant.
+security:
+- bearerAuth: []
+tags:
+- name: Assignments
+paths:
+  /api/v0/users/{userId}/assignments:
+    parameters:
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listUserAssignments
+      tags:
+      - Assignments
+      summary: List a user's assignments.
+      responses:
+        '200':
+          description: OK
+    post:
+      operationId: assignContentToUser
+      tags:
+      - Assignments
+      summary: Assign content to a user.
+      responses:
+        '200':
+          description: OK
+    delete:
+      operationId: deleteUserAssignment
+      tags:
+      - Assignments
+      summary: Delete a user's assignment.
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer access token obtained from POST /api/token via the OAuth 2.0 client credentials flow. Sent as: Authorization: Bearer <accessToken>.'
