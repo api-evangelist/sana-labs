@@ -8,7 +8,20 @@ description: Sana is an AI-native knowledge and learning company (Stockholm, Swe
   AI-first LMS/LXP. Sana exposes a tenant-scoped REST API (OAuth 2.0 client
   credentials) for user, group, program, course, content, and reporting management,
   along with xAPI and SCIM integration surfaces.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sana-labs.png
 tags:
 - AI
 - Knowledge
@@ -19,102 +32,182 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: sana-labs:ai-assistant-agents-api
-  name: Sana AI Assistant & Agents API
-  tags:
-  - AI
-  - Agents
-  - Assistant
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: sana-labs:sana-labs-assignments-api
+  name: Sana Assignments API
+  description: The Assignments API from Sana — 1 operation(s) for assignments.
   humanURL: https://docs.sana.ai/api-docs/
   baseURL: https://<domain>.sana.ai
-  properties:
-  - url: https://docs.sana.ai/api-docs/
-    type: Documentation
-  - url: openapi/sana-labs-openapi.yml
-    type: OpenAPI
-  - url: collections/sana-labs.postman_collection.json
-    type: PostmanCollection
-  - url: collections/sana-labs.opencollection.json
-    type: OpenCollection
-  description: Sana AI / Sana Agents builds expert AI agents and a knowledge
-    assistant grounded in a company's connected knowledge, able to act across tools
-    such as Slack and Salesforce. The agent / assistant capabilities are configured
-    primarily in-product; the documented public REST API surface is tenant-scoped
-    administration and content rather than a general chat-completions endpoint, and
-    agent/assistant programmatic access is partner / tenant gated. Captured here
-    accurately rather than fabricated.
-- aid: sana-labs:knowledge-search-api
-  name: Sana Knowledge & Search API
   tags:
-  - Knowledge
-  - Search
-  - Retrieval
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Assignments
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-assignments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-authentication-api
+  name: Sana Authentication API
+  description: The Authentication API from Sana — 1 operation(s) for authentication.
   humanURL: https://docs.sana.ai/api-docs/
   baseURL: https://<domain>.sana.ai
-  properties:
-  - url: https://docs.sana.ai/api-docs/
-    type: Documentation
-  - url: openapi/sana-labs-openapi.yml
-    type: OpenAPI
-  - url: collections/sana-labs.postman_collection.json
-    type: PostmanCollection
-  - url: collections/sana-labs.opencollection.json
-    type: OpenCollection
-  description: Sana connects to a company's knowledge (documents, spreadsheets,
-    meeting recordings, CRM assets) and answers multimodal queries grounded in
-    authorized sources. A dedicated public search/retrieval REST endpoint is not
-    separately documented in the public API reference as of this catalog date;
-    knowledge ingestion and grounding are configured via in-product connectors and
-    the Sana Learn content/course APIs.
-- aid: sana-labs:content-learning-api
-  name: Sana Learn Content & Learning API
   tags:
-  - Learning
-  - LMS
-  - Content
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-courses-api
+  name: Sana Courses API
+  description: The Courses API from Sana — 6 operation(s) for courses.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
   - Courses
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-courses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-groups-api
+  name: Sana Groups API
+  description: The Groups API from Sana — 4 operation(s) for groups.
   humanURL: https://docs.sana.ai/api-docs/
   baseURL: https://<domain>.sana.ai
-  properties:
-  - url: https://docs.sana.ai/api-docs/
-    type: Documentation
-  - url: openapi/sana-labs-openapi.yml
-    type: OpenAPI
-  - url: collections/sana-labs.postman_collection.json
-    type: PostmanCollection
-  - url: collections/sana-labs.opencollection.json
-    type: OpenCollection
-  description: The documented core of the public API - tenant-scoped management of
-    users, groups, programs, courses, learning paths, assignments, teamspaces, and
-    reporting/insights for the Sana Learn platform. All requests are authenticated
-    with a Bearer access token obtained via OAuth 2.0 client credentials and are
-    scoped to a customer's <domain>.sana.ai tenant.
-- aid: sana-labs:integrations-api
-  name: Sana Integrations API
   tags:
-  - Integrations
-  - xAPI
-  - SCIM
-  - Provisioning
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-groups-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-insights-api
+  name: Sana Insights API
+  description: The Insights API from Sana — 2 operation(s) for insights.
   humanURL: https://docs.sana.ai/api-docs/
   baseURL: https://<domain>.sana.ai
+  tags:
+  - Insights
   properties:
-  - url: https://docs.sana.ai/api-docs/
-    type: Documentation
-  - url: openapi/sana-labs-openapi.yml
-    type: OpenAPI
-  - url: collections/sana-labs.postman_collection.json
-    type: PostmanCollection
-  - url: collections/sana-labs.opencollection.json
-    type: OpenCollection
-  description: Standards-based integration surfaces - xAPI (Experience API)
-    statement ingestion at /xapi/v1/statements with its own OAuth token endpoint,
-    and SCIM 2.0 user/group provisioning at /scim/v2 - plus connectors to external
-    systems (Slack, Salesforce, LinkedIn Learning) configured in-product.
+  - type: OpenAPI
+    url: openapi/sana-labs-insights-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-paths-api
+  name: Sana Paths API
+  description: The Paths API from Sana — 2 operation(s) for paths.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
+  - Paths
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-paths-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-programs-api
+  name: Sana Programs API
+  description: The Programs API from Sana — 3 operation(s) for programs.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
+  - Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-programs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-reporting-api
+  name: Sana Reporting API
+  description: The Reporting API from Sana — 3 operation(s) for reporting.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
+  - Reporting
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-reporting-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-teamspaces-api
+  name: Sana Teamspaces API
+  description: The Teamspaces API from Sana — 3 operation(s) for teamspaces.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
+  - Teamspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-teamspaces-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-users-api
+  name: Sana Users API
+  description: The Users API from Sana — 7 operation(s) for users.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-users-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
+- aid: sana-labs:sana-labs-xapi-api
+  name: Sana xAPI API
+  description: The xAPI API from Sana — 2 operation(s) for xapi.
+  humanURL: https://docs.sana.ai/api-docs/
+  baseURL: https://<domain>.sana.ai
+  tags:
+  - xAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/sana-labs-xapi-api-openapi.yml
+  - type: Documentation
+    url: https://docs.sana.ai/api-docs/
+  - type: PostmanCollection
+    url: collections/sana-labs.postman_collection.json
+  - type: OpenCollection
+    url: collections/sana-labs.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/sana-labs-agentic-access.yml
