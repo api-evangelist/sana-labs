@@ -1,0 +1,34 @@
+{
+  "provider": "sana-labs",
+  "sources": [
+    "sana-labs-assignments-api-openapi.yml",
+    "sana-labs-authentication-api-openapi.yml",
+    "sana-labs-courses-api-openapi.yml",
+    "sana-labs-groups-api-openapi.yml",
+    "sana-labs-insights-api-openapi.yml",
+    "sana-labs-paths-api-openapi.yml",
+    "sana-labs-programs-api-openapi.yml",
+    "sana-labs-reporting-api-openapi.yml",
+    "sana-labs-teamspaces-api-openapi.yml",
+    "sana-labs-users-api-openapi.yml",
+    "sana-labs-xapi-api-openapi.yml"
+  ],
+  "outputs": [
+    "sana-labs-assignments-api-openapi.yml",
+    "sana-labs-authentication-api-openapi.yml",
+    "sana-labs-courses-api-openapi.yml",
+    "sana-labs-groups-api-openapi.yml",
+    "sana-labs-insights-api-openapi.yml",
+    "sana-labs-paths-api-openapi.yml",
+    "sana-labs-programs-api-openapi.yml",
+    "sana-labs-reporting-api-openapi.yml",
+    "sana-labs-teamspaces-api-openapi.yml",
+    "sana-labs-users-api-openapi.yml",
+    "sana-labs-xapi-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
