@@ -1,0 +1,201 @@
+{
+  "item": [
+    {
+      "id": "ed6e4c03-6fba-49e2-911d-0d7ac850e1a5",
+      "name": "Insights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64c9606b-17f3-4af7-a249-899aa320e752",
+          "name": "Create an Insights report job.",
+          "request": {
+            "name": "Create an Insights report job.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "reports",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a534495-ebf6-407b-9a48-5292b519d019",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62cb63a1-b566-49a7-9d27-5bea498a8408",
+          "name": "Get an Insights report job status.",
+          "request": {
+            "name": "Get an Insights report job status.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "reports",
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "089e522c-2303-4d76-bb1d-a47ca7a6ef23",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://<domain>.sana.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e1b84fb-4ad5-452c-851c-aaf95946d1f9",
+    "name": "Sana Assignments Insights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana Learn). All requests are authenticated with a Bearer access token obtained via the OAuth 2.0 client credentials flow and are scoped to a customer's <domain>.sana.ai tenant. The endpoints below are transcribed from Sana's public API reference and cover platform administration (users, groups, programs, courses, paths, assignments, teamspaces), reporting/insights, and standards-based integration surfaces (xAPI). SCIM 2.0 provisioning is offered at /scim/v2 and is not modeled here. AI agent/assistant capabilities are configured primarily in-product and are not exposed as a public chat-completions endpoint in this reference. No endpoints are fabricated; replace <domain> with your tenant domain.\n\nContact Support:\n Name: Sana",
+      "type": "text/plain"
+    }
+  }
+}

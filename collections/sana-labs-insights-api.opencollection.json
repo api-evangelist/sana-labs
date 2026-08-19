@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sana Assignments Insights API",
+    "version": "0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Insights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an Insights report job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v1/reports/query"
+          },
+          "docs": "Create an Insights report job."
+        },
+        {
+          "info": {
+            "name": "Get an Insights report job status.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://<domain>.sana.ai/api/v1/reports/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an Insights report job status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

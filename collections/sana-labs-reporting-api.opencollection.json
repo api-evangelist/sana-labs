@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sana Assignments Reporting API",
+    "version": "0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reporting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available reports (legacy reporting).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://<domain>.sana.ai/api/v0/reports"
+          },
+          "docs": "List available reports (legacy reporting)."
+        },
+        {
+          "info": {
+            "name": "Get report job status (legacy reporting).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://<domain>.sana.ai/api/v0/reports/:reportId/jobs",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get report job status (legacy reporting)."
+        },
+        {
+          "info": {
+            "name": "Create a report job (legacy reporting).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v0/reports/:reportId/jobs",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a report job (legacy reporting)."
+        },
+        {
+          "info": {
+            "name": "Get a specific report job status (legacy reporting).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://<domain>.sana.ai/api/v0/reports/:reportId/jobs/:jobId",
+            "params": [
+              {
+                "name": "reportId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific report job status (legacy reporting)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

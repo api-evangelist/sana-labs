@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sana Assignments xAPI API",
+    "version": "0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "xAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OAuth token endpoint for xAPI.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/oauth/token"
+          },
+          "docs": "Dedicated OAuth token endpoint used to authenticate xAPI statement requests."
+        },
+        {
+          "info": {
+            "name": "Send xAPI (Experience API) statements.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/xapi/v1/statements"
+          },
+          "docs": "Send xAPI (Experience API) statements."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sana Assignments Authentication API",
+    "version": "0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request an access token (OAuth 2.0 client credentials).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Exchange client_id and client_secret for a Bearer access token using grant_type=client_credentials. The response includes accessToken, tokenType (bearer), and expiresIn (e.g. 3600 seconds)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

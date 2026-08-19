@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Sana Assignments Courses API",
+    "version": "0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Courses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List courses.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://<domain>.sana.ai/api/v0/courses"
+          },
+          "docs": "List courses."
+        },
+        {
+          "info": {
+            "name": "Create a link course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v0/courses"
+          },
+          "docs": "Create a link course."
+        },
+        {
+          "info": {
+            "name": "Create a course (v1).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v1/courses"
+          },
+          "docs": "Create a course (v1)."
+        },
+        {
+          "info": {
+            "name": "Bulk upsert link courses.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v1/courses/bulk-link-upsert"
+          },
+          "docs": "Bulk upsert link courses."
+        },
+        {
+          "info": {
+            "name": "Get a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://<domain>.sana.ai/api/v0/courses/:courseId",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a course."
+        },
+        {
+          "info": {
+            "name": "Update a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://<domain>.sana.ai/api/v0/courses/:courseId",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a course."
+        },
+        {
+          "info": {
+            "name": "Delete a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://<domain>.sana.ai/api/v0/courses/:courseId",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a course."
+        },
+        {
+          "info": {
+            "name": "Mark course completion for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v0/courses/:courseId/completed/:userId",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Mark course completion for a user."
+        },
+        {
+          "info": {
+            "name": "Reset course progress for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://<domain>.sana.ai/api/v0/courses/:courseId/reset/:userId",
+            "params": [
+              {
+                "name": "courseId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset course progress for a user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
