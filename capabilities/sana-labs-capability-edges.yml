@@ -1,0 +1,55 @@
+slug: sana-labs
+provider: Sana
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Assignments
+  spec_file: sana-labs-assignments-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.75
+  evidence: POST /api/v0/users/{userId}/assignments assignContentToUser 'Assign content to a user.'
+  reason: Assigning learning content to individual users in a corporate LMS/LXP is training administration,
+    i.e. Learning & Development Management. Sana is an enterprise learning platform rather than an academic
+    institution, so the cross-industry L&D capability fits better than the Education-frame teaching capabilities.
+- tag: Courses
+  spec_file: sana-labs-courses-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.75
+  evidence: POST /api/v1/courses createCourseV1 'Create a course (v1).'; POST /api/v0/courses/{courseId}/completed/{userId}
+    'Mark course completion for a user.'
+  reason: CRUD over courses plus per-user completion and progress reset is training catalogue and completion
+    administration in an enterprise LMS — Learning & Development Management. Not academic programme/curriculum
+    governance, since these are corporate courses with completion marking rather than credit-bearing modules.
+- tag: Paths
+  spec_file: sana-labs-paths-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.7
+  evidence: GET /api/v0/paths listPaths 'List learning paths.'
+  reason: Learning paths are structured sequences of training content in a corporate LMS; read access
+    to them supports Learning & Development Management. Only two read operations, so confidence moderate.
+- tag: Programs
+  spec_file: sana-labs-programs-api-openapi.yml
+  capability_id: BC-300.40
+  capability_id_l1: BC-300
+  capability_name: Learning & Development Management
+  confidence: 0.7
+  evidence: POST /api/v0/programs/{programId}/members enrollProgramMember 'Enroll a user to a program.'
+  reason: Creating learning programmes and enrolling/unenrolling members in an enterprise learning platform
+    is training programme administration under Learning & Development Management. 'Program' here is an
+    LMS learning programme, not an academic degree programme.

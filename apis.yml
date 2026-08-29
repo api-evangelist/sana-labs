@@ -232,6 +232,9 @@ apis:
   - type: OpenCollection
     url: collections/sana-labs.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/sana-labs-capability-edges.yml
+  name: Sana Business Capability Map
 - type: AgenticAccess
   url: agentic-access/sana-labs-agentic-access.yml
 - type: DomainSecurity
