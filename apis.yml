@@ -8,6 +8,18 @@ description: Sana is an AI-native knowledge and learning company (Stockholm, Swe
   AI-first LMS/LXP. Sana exposes a tenant-scoped REST API (OAuth 2.0 client
   credentials) for user, group, program, course, content, and reporting management,
   along with xAPI and SCIM integration surfaces.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
