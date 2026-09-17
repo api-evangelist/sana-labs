@@ -215,16 +215,16 @@ apis:
     url: collections/sana-labs.postman_collection.json
   - type: OpenCollection
     url: collections/sana-labs.opencollection.json
-- aid: sana-labs:sana-labs-xapi-api
-  name: Sana xAPI API
-  description: The xAPI API from Sana — 2 operation(s) for xapi.
+- aid: sana-labs:sana-labs-x-api-api
+  name: Sana x API
+  description: The x API API from Sana — 2 operation(s) for x api.
   humanURL: https://docs.sana.ai/api-docs/
   baseURL: https://<domain>.sana.ai
   tags:
-  - xAPI
+  - x API
   properties:
   - type: OpenAPI
-    url: openapi/sana-labs-xapi-api-openapi.yml
+    url: openapi/sana-labs-x-api-api-openapi.yml
   - type: Documentation
     url: https://docs.sana.ai/api-docs/
   - type: PostmanCollection
