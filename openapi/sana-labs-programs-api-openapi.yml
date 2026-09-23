@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Sana Assignments Programs API
-  description: Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana Learn). All requests are authenticated with a Bearer access token obtained via the OAuth 2.0 client credentials flow and are scoped to a customer's <domain>.sana.ai tenant. The endpoints below are transcribed from Sana's public API reference and cover platform administration (users, groups, programs, courses, paths, assignments, teamspaces), reporting/insights, and standards-based integration surfaces (xAPI). SCIM 2.0 provisioning is offered at /scim/v2 and is not modeled here. AI agent/assistant capabilities are configured primarily in-product and are not exposed as a public chat-completions endpoint in this reference. No endpoints are fabricated; replace <domain> with your tenant domain.
+  title: Sana Programs API
+  description: Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana Learn).
   termsOfService: https://sanalabs.com/legal
   contact:
     name: Sana
@@ -20,7 +20,7 @@ paths:
       operationId: listPrograms
       tags:
       - Programs
-      summary: List all programs.
+      summary: List all programs
       responses:
         '200':
           description: OK
@@ -28,7 +28,7 @@ paths:
       operationId: createProgram
       tags:
       - Programs
-      summary: Create a program.
+      summary: Create a program
       responses:
         '200':
           description: OK
@@ -43,7 +43,7 @@ paths:
       operationId: getProgram
       tags:
       - Programs
-      summary: Get a program.
+      summary: Get a program
       responses:
         '200':
           description: OK
@@ -51,7 +51,7 @@ paths:
       operationId: updateProgram
       tags:
       - Programs
-      summary: Update a program.
+      summary: Update a program
       responses:
         '200':
           description: OK
@@ -59,7 +59,7 @@ paths:
       operationId: deleteProgram
       tags:
       - Programs
-      summary: Delete a program.
+      summary: Delete a program
       responses:
         '200':
           description: OK
@@ -74,7 +74,7 @@ paths:
       operationId: enrollProgramMember
       tags:
       - Programs
-      summary: Enroll a user to a program.
+      summary: Enroll a user to a program
       responses:
         '200':
           description: OK
@@ -82,7 +82,7 @@ paths:
       operationId: unenrollProgramMember
       tags:
       - Programs
-      summary: Unenroll a user from a program.
+      summary: Unenroll a user from a program
       responses:
         '200':
           description: OK

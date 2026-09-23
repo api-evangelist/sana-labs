@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Sana Insights API
+  title: Sana X API
   description: Tenant-scoped REST API for the Sana platform (Sana AI / Sana Agents and Sana Learn).
   termsOfService: https://sanalabs.com/legal
   contact:
@@ -13,29 +13,25 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: Insights
+- name: x API
 paths:
-  /api/v1/reports/query:
+  /api/oauth/token:
     post:
-      operationId: createInsightsReportJob
+      operationId: createXapiToken
       tags:
-      - Insights
-      summary: Create an Insights report job
+      - x API
+      summary: OAuth token endpoint for xAPI
+      description: Dedicated OAuth token endpoint used to authenticate xAPI statement requests.
+      security: []
       responses:
         '200':
           description: OK
-  /api/v1/reports/jobs/{jobId}:
-    parameters:
-    - name: jobId
-      in: path
-      required: true
-      schema:
-        type: string
-    get:
-      operationId: getInsightsReportJob
+  /xapi/v1/statements:
+    post:
+      operationId: sendXapiStatements
       tags:
-      - Insights
-      summary: Get an Insights report job status
+      - x API
+      summary: Send xAPI (Experience API) statements
       responses:
         '200':
           description: OK
