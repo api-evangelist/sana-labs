@@ -2,6 +2,10 @@ aid: sana-labs
 url: https://raw.githubusercontent.com/api-evangelist/sana-labs/refs/heads/main/apis.yml
 name: Sana
 kind: company
+x-status: acquired
+x-acquired-by: workday
+x-acquired-date: '2025-11-04'
+x-status-source: https://newsroom.workday.com/2025-11-04-Workday-Completes-Acquisition-of-Sana
 description: Sana is an AI-native knowledge and learning company (Stockholm, Sweden;
   now part of Workday) behind Sana AI / Sana Agents and the Sana Learn platform. It
   builds expert AI agents and assistants grounded in a company's knowledge, plus an
@@ -41,12 +45,14 @@ tags:
 - Learning
 - LMS
 - Agents
+- Knowledge Management
 tags_raw:
 - AI
 - Knowledge
 - Learning
 - LMS
 - Agents
+- Knowledge Management
 created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.23'
@@ -221,6 +227,8 @@ apis:
   humanURL: https://docs.sana.ai/api-docs/
   baseURL: https://<domain>.sana.ai
   tags:
+  - xAPI
+  tags_raw:
   - x API
   properties:
   - type: OpenAPI
