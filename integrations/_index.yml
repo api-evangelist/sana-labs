@@ -27,7 +27,7 @@
     - connectors/applications/sana
     vendor_link: https://sana.ai/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: sana-labs-slack-own
   label: Slack (own)
