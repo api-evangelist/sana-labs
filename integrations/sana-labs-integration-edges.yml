@@ -1,5 +1,22 @@
 generated: '2026-10-18'
 edges:
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A03J3H06R3N-sana
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Sana
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
 - partner_name: Fivetran
   partner: fivetran
   partner_match: aggregator
@@ -26,23 +43,6 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A03J3H06R3N-sana
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - Sana
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
 method: searched
 checked:
 - https://fivetran.com/docs-sitemap.xml
